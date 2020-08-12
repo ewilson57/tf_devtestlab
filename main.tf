@@ -1,5 +1,5 @@
 provider "azurerm" {
-  version = "=2.14.0"
+  version = ">=2.14.0"
   features {
     virtual_machine {
       delete_os_disk_on_deletion = true
