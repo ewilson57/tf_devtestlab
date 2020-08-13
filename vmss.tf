@@ -1,6 +1,6 @@
 resource "azurerm_windows_virtual_machine_scale_set" "windows_vmss" {
   name                 = "win-vmss"
-  computer_name_prefix = "win-vmss-"
+  computer_name_prefix = "win-vmss"
   resource_group_name  = azurerm_resource_group.devtestlab.name
   location             = azurerm_resource_group.devtestlab.location
   sku                  = "Standard_F2"
