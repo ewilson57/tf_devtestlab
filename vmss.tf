@@ -55,3 +55,9 @@ resource "azurerm_lb" "win-vmss-lb" {
         public_ip_address_id          = azurerm_public_ip.win-vmss-ip.id
     }
 }
+
+resource "azurerm_lb_backend_address_pool" "bpepool" {
+  resource_group_name = azurerm_resource_group.devtestlab.name
+  loadbalancer_id     = azurerm_lb.win-vmss-lb.id
+  name                = "BackEndAddressPool"
+}
