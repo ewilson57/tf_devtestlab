@@ -31,3 +31,27 @@ resource "azurerm_windows_virtual_machine_scale_set" "windows_vmss" {
     }
   }
 }
+
+resource "azurerm_public_ip" "win-vmss-ip" {
+    allocation_method       = "Dynamic"
+    idle_timeout_in_minutes = 4
+    ip_version              = "IPv4"
+    location                = var.location 
+    name                    = "win-vmss-ip"
+    resource_group_name     = azurerm_resource_group.devtestlab.name
+    sku                     = "Standard"
+}
+
+resource "azurerm_lb" "win-vmss-lb" {
+    location             = var.location
+    name                 = "win-vmss-lb"
+    resource_group_name  = azurerm_resource_group.devtestlab.name
+    sku                  = "Standard"
+
+    frontend_ip_configuration {
+        name                          = "LoadBalancerFrontEnd"
+        private_ip_address_allocation = "Dynamic"
+        private_ip_address_version    = "IPv4"
+        public_ip_address_id          = azurerm_public_ip.win-vmss-ip.id
+    }
+}
