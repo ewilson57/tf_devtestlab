@@ -5,8 +5,8 @@ resource "azurerm_windows_virtual_machine_scale_set" "windows_vmss" {
   location             = azurerm_resource_group.devtestlab.location
   sku                  = "Standard_F2"
   instances            = 1
-  admin_password       = var.admin_username
-  admin_username       = var.admin_password
+  admin_username       = var.admin_username
+  admin_password       = var.admin_password
 
   source_image_reference {
     publisher = "MicrosoftWindowsServer"
