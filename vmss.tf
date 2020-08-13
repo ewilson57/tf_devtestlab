@@ -1,4 +1,4 @@
-resource "azurerm_windows_virtual_machine_scale_set" "example" {
+resource "azurerm_windows_virtual_machine_scale_set" "windows_vmss" {
   name                = "example-vmss"
   resource_group_name = azurerm_resource_group.devtestlab.name
   location            = azurerm_resource_group.devtestlab.location
@@ -26,7 +26,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "example" {
     ip_configuration {
       name      = "internal"
       primary   = true
-      subnet_id = azurerm_subnet.internal.id
+      subnet_id = azurerm_subnet.devtestlab.id
     }
   }
 }
