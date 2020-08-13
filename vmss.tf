@@ -1,11 +1,12 @@
 resource "azurerm_windows_virtual_machine_scale_set" "windows_vmss" {
-  name                = "example-vmss"
-  resource_group_name = azurerm_resource_group.devtestlab.name
-  location            = azurerm_resource_group.devtestlab.location
-  sku                 = "Standard_F2"
-  instances           = 1
-  admin_password      = var.admin_username
-  admin_username      = var.admin_password
+  name                 = "win-vmss"
+  computer_name_prefix = "win-vmss-"
+  resource_group_name  = azurerm_resource_group.devtestlab.name
+  location             = azurerm_resource_group.devtestlab.location
+  sku                  = "Standard_F2"
+  instances            = 1
+  admin_password       = var.admin_username
+  admin_username       = var.admin_password
 
   source_image_reference {
     publisher = "MicrosoftWindowsServer"
