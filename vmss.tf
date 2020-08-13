@@ -39,7 +39,7 @@ resource "azurerm_public_ip" "win-vmss-ip" {
     location                = var.location 
     name                    = "win-vmss-ip"
     resource_group_name     = azurerm_resource_group.devtestlab.name
-    sku                     = "Standard"
+    sku                     = "Basic"
 }
 
 resource "azurerm_lb" "win-vmss-lb" {
