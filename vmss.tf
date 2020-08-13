@@ -46,7 +46,7 @@ resource "azurerm_lb" "win-vmss-lb" {
     location             = var.location
     name                 = "win-vmss-lb"
     resource_group_name  = azurerm_resource_group.devtestlab.name
-    sku                  = "Standard"
+    sku                  = "Basic"
 
     frontend_ip_configuration {
         name                          = "LoadBalancerFrontEnd"
